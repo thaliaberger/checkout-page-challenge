@@ -180,6 +180,7 @@ footer {
 
 footer a {
   color: #b9bdcf;
+  margin-left: 5px;
 }
 
 @media (min-width: 800px) {

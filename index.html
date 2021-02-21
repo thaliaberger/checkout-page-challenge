@@ -17,9 +17,9 @@
             <h5>Vintage Backbag</h5>
             <p>$54.99<small>$94.99</small></p>
             <div class="add-div">
-              <button id="remove-btn">-</button>
+              <button id="remove-btn" onclick="remove(this)">-</button>
               <p class="number">1</p>
-              <button id="add-btn">+</button>
+              <button id="add-btn" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -29,9 +29,9 @@
             <h5>Levi Shoes</h5>
             <p>$74.99<small>$124.99</small></p>
             <div class="add-div">
-              <button id="remove-btn">-</button>
+              <button id="remove-btn" onclick="remove(this)">-</button>
               <p class="number">1</p>
-              <button id="add-btn">+</button>
+              <button id="add-btn" onclick="add(this)">+</button>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@
 
       <section class="section2">
         <h2>Contact infomation</h2>
-        <form>
+        <form onsubmit="myFunction()">
           <label for="email">Email</label><br />
           <input
             type="email"
@@ -73,6 +73,7 @@
             id="name"
             name="name"
             placeholder="Rodney Cotton"
+            required
           /><br />
           <label for="address">Address</label><br />
           <input
@@ -80,6 +81,7 @@
             id="address"
             name="address"
             placeholder="Your address.."
+            required
           /><br />
           <label for="city">City</label><br />
           <input
@@ -87,11 +89,12 @@
             id="city"
             name="city"
             placeholder="Your city.."
+            required
           /><br />
           <div class="country-div">
             <div>
               <label for="country">Country</label><br />
-              <select name="country" id="country">
+              <select name="country" id="country" required>
                 <option value="" disabled selected>Your country..</option>
                 <option value="Brazil">Brazil</option>
                 <option value="USA">USA</option>
@@ -106,6 +109,7 @@
                 id="postal"
                 name="postal"
                 placeholder="Your postal code.."
+                required
               />
             </div>
           </div>
@@ -131,5 +135,24 @@
       </a>
       - devChallenges.io
     </footer>
+    <script>
+      function myFunction() {
+        alert("The form was submitted");
+      }
+
+      function remove(e) {
+        e.parentNode.children[1].innerHTML > 0
+          ? (e.parentNode.children[1].innerHTML =
+              Number(e.parentNode.children[1].innerHTML) - 1)
+          : (e.parentNode.children[1].innerHTML = 0);
+        console.log(e.parentNode.children[1].innerHTML);
+      }
+
+      function add(e) {
+        e.parentNode.children[1].innerHTML =
+          Number(e.parentNode.children[1].innerHTML) + 1;
+        console.log(e.parentNode.children[1].innerHTML);
+      }
+    </script>
   </body>
 </html>
